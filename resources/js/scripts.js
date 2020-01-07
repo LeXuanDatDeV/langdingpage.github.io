@@ -1,0 +1,38 @@
+$(document).ready(
+    function(){
+        //sticky
+        $('.about-section').waypoint(
+            function(direction){
+                if(direction == "down"){
+                    $('nav').addClass('sticky');
+                }else{
+                    $('nav').removeClass('sticky');
+                }
+            },{
+                offset: '200px'
+            }
+        )
+        //scroll
+        $('a').click(function () {
+            $('html, body').animate({
+                scrollTop: $( $.attr(this, 'href') ).offset().top
+            }, 1000);
+        
+            event.preventDefault();
+        });
+        //mobile nav
+        $('.mobile-nav-icon').click(
+            function(){
+                $('.nav-container').slideToggle(200);
+                if($('.mobile-nav-icon').hasClass('fa-bars')){
+                    $('.mobile-nav-icon').addClass('fa-times');
+                    $('.mobile-nav-icon').removeClass('fa-bars');
+
+                }else{
+                    $('.mobile-nav-icon').addClass('fa-bars');
+                    $('.mobile-nav-icon').removeClass('fa-times');
+                }
+            }
+        )
+    }
+)
